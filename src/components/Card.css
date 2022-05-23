@@ -1,0 +1,45 @@
+.card {
+  height: 20em;
+  width: 32em;
+  margin: 1em 0 1.5em 0;
+  border: solid 0.4em #d3c744;
+  border-radius: 2em;
+  background-color: #efecc5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.card__icon {
+  position: absolute;
+  top: -1.25em;
+  right: 0.75em;
+  fill: #926a56;
+}
+
+.card__icon--active {
+  fill: #e89ac7;
+}
+
+.card__image {
+  height: 8em;
+  width: 8em;
+  border: solid 0.2em #926a56;
+  border-radius: 50%;
+}
+
+.card__heading {
+  color: #926a56;
+}
+
+.card__button {
+  height: 3em;
+  width: 8em;
+  background-color: #e89ac7;
+  border: 0 solid #e89ac7;
+  border-radius: 0.8em;
+  color: white;
+  font-weight: bold;
+}
