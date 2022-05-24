@@ -1,6 +1,6 @@
 .App-header {
   background-color: #97ce4c;
-  color: #926a56;
+
   position: fixed;
   z-index: 10;
   top: 0;
@@ -13,4 +13,5 @@
 
 .App-heading {
   padding-bottom: 0.25em;
+  color: #926a56;
 }
