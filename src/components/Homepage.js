@@ -13,16 +13,11 @@ export default function Homepage() {
       const response = await fetch(url);
       const data = await response.json();
       const results = data.results.map((person) => {
-        return { ...person, isBookmarked: false };
+        return { ...person, isBookmarked: Math.random() > 0.5 ? true : false };
       });
       setPersons(results);
     }
   }, []);
-
-  function randomBoolean() {
-    const randomBool = Math.random() > 0.5 ? true : false;
-    setBoolean(randomBool);
-  }
 
   console.log(persons);
 
