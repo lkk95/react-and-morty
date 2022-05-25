@@ -1,4 +1,5 @@
 import "./Card.css";
+import { useState } from "react";
 
 export default function Card({
   name,
@@ -8,6 +9,8 @@ export default function Card({
   location,
   image,
 }) {
+  const [state, setState] = useState(true);
+
   return (
     <section className="card">
       {/* <svg
@@ -25,8 +28,15 @@ export default function Card({
       </svg> */}
       <img className="card__image" src={image} alt=""></img>
       <h2 className="card__heading">{name}</h2>
-      <button className="card__button">Show Details</button>
-      <ul>
+      <button
+        className="card__button"
+        onClick={() => {
+          setState(!state);
+        }}
+      >
+        {state === true ? "Show details" : "Hide details"}
+      </button>
+      <ul className={`card__list ${state === true ? "hidden" : ""}`}>
         <li>Status: {status}</li>
         <li>Species: {species}</li>
         <li>Gender: {gender}</li>
