@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Homepage() {
   const [persons, setPersons] = useState([]);
-  console.log(persons);
+  const [boolean, setBoolean] = useState(false);
 
   useEffect(() => {
     const url = "https://rickandmortyapi.com/api/character/";
@@ -12,9 +12,19 @@ export default function Homepage() {
     async function fetchData(url) {
       const response = await fetch(url);
       const data = await response.json();
-      setPersons(data.results);
+      const results = data.results.map((person) => {
+        return { ...person, isBookmarked: false };
+      });
+      setPersons(results);
     }
   }, []);
+
+  function randomBoolean() {
+    const randomBool = Math.random() > 0.5 ? true : false;
+    setBoolean(randomBool);
+  }
+
+  console.log(persons);
 
   return (
     <main className="App-main">
@@ -27,6 +37,7 @@ export default function Homepage() {
           gender={person.gender}
           location={person.location}
           image={person.image}
+          isBookmarked={person.isBookmarked}
         />
       ))}
     </main>
