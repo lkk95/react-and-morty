@@ -1,0 +1,17 @@
+.App-header {
+  background-color: #97ce4c;
+
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  height: 6em;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-heading {
+  padding-bottom: 0.25em;
+  color: #926a56;
+}
