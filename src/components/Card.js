@@ -1,6 +1,6 @@
 import "./Card.css";
 
-function Card({ name, imgURL, isBookmarked }) {
+export default function Card({ name, imgURL, isBookmarked }) {
   return (
     <section className="card">
       <svg
@@ -22,5 +22,3 @@ function Card({ name, imgURL, isBookmarked }) {
     </section>
   );
 }
-
-export default Card;

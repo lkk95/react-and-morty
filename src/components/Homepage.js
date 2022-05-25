@@ -1,7 +1,7 @@
 import "../App.css";
 import Card from "./Card";
 
-function Homepage() {
+export default function Homepage() {
   return (
     <main className="App-main">
       <Card
@@ -22,5 +22,3 @@ function Homepage() {
     </main>
   );
 }
-
-export default Homepage;
