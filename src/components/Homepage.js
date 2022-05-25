@@ -1,24 +1,34 @@
 import "../App.css";
 import Card from "./Card";
+import { useEffect, useState } from "react";
 
 export default function Homepage() {
+  const [persons, setPersons] = useState([]);
+  console.log(persons);
+
+  useEffect(() => {
+    const url = "https://rickandmortyapi.com/api/character/";
+    fetchData(url);
+    async function fetchData(url) {
+      const response = await fetch(url);
+      const data = await response.json();
+      setPersons(data.results);
+    }
+  }, []);
+
   return (
     <main className="App-main">
-      <Card
-        name="Alien Morty"
-        imgURL={"https://rickandmortyapi.com/api/character/avatar/14.jpeg"}
-        isBookmarked={false}
-      />
-      <Card
-        name="Pizza-person"
-        imgURL="https://rickandmortyapi.com/api/character/avatar/425.jpeg"
-        isBookmarked={true}
-      />
-      <Card
-        name="Doopidoo"
-        imgURL="https://rickandmortyapi.com/api/character/avatar/433.jpeg"
-        isBookmarked={false}
-      />
+      {persons.map((person) => (
+        <Card
+          key={person.id}
+          name={person.name}
+          status={person.status}
+          species={person.species}
+          gender={person.gender}
+          location={person.location}
+          image={person.image}
+        />
+      ))}
     </main>
   );
 }

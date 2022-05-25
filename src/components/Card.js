@@ -1,9 +1,16 @@
 import "./Card.css";
 
-export default function Card({ name, imgURL, isBookmarked }) {
+export default function Card({
+  name,
+  status,
+  species,
+  gender,
+  location,
+  image,
+}) {
   return (
     <section className="card">
-      <svg
+      {/* <svg
         className={`card__icon bi bi-bookmark-fill ${
           isBookmarked ? "card__icon--active" : ""
         }`}
@@ -15,10 +22,16 @@ export default function Card({ name, imgURL, isBookmarked }) {
       >
         {" "}
         <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z" />{" "}
-      </svg>
-      <img className="card__image" src={imgURL} alt=""></img>
+      </svg> */}
+      <img className="card__image" src={image} alt=""></img>
       <h2 className="card__heading">{name}</h2>
       <button className="card__button">Show Details</button>
+      <ul>
+        <li>Status: {status}</li>
+        <li>Species: {species}</li>
+        <li>Gender: {gender}</li>
+        <li>Location: {location.name}</li>
+      </ul>
     </section>
   );
 }
