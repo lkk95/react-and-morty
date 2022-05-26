@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 export default function Homepage() {
   const [persons, setPersons] = useState([]);
-  const [boolean, setBoolean] = useState(false);
 
   useEffect(() => {
     const url = "https://rickandmortyapi.com/api/character/";
