@@ -9,15 +9,15 @@ export default function Card({
   location,
   image,
   isBookmarked,
+  setBookmark,
 }) {
   const [state, setState] = useState(true);
-  const [bookmark, setBookmark] = useState(isBookmarked);
 
   return (
     <section className={`${state === true ? "card" : "card--toggled"}`}>
       <svg
         className={`card__icon bi bi-bookmark-fill ${
-          bookmark === true ? "card__icon--active" : ""
+          isBookmarked === true ? "card__icon--active" : ""
         }`}
         xmlns="http://www.w3.org/2000/svg"
         width="40"
@@ -25,7 +25,7 @@ export default function Card({
         fill="currentColor"
         viewBox="0 0 16 16"
         onClick={() => {
-          setBookmark(!bookmark);
+          setBookmark(!isBookmarked);
         }}
       >
         {" "}

@@ -18,6 +18,16 @@ export default function Homepage() {
     }
   }, []);
 
+  function setBookmarks(id, newValue) {
+    const newPersons = [...persons];
+    newPersons.map((person) => {
+      return id === person.id
+        ? (person.isBookmarked = newValue)
+        : person.isBookmarked;
+    });
+    setPersons(newPersons);
+  }
+
   console.log(persons);
 
   return (
@@ -32,6 +42,7 @@ export default function Homepage() {
           location={person.location}
           image={person.image}
           isBookmarked={person.isBookmarked}
+          setBookmark={(newValue) => setBookmarks(person.id, newValue)}
         />
       ))}
     </main>
